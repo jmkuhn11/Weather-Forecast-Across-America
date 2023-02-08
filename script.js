@@ -4,38 +4,97 @@ var cityHistoryDiv = document.getElementById('cityHistory');
 var key = "cityName";
 var cityArray = JSON.parse(localStorage.getItem(key)) || [];
 
+/*
+var cityArray = [];
+var val = localStorage.getItem(key);
+if (val = null) {
+    alert("cityArray is null");
+    cityArray = [];
+} else {
+    alert("cityArray is NOT null");
+    cityArray = JSON.parse(val);
+}
+*/
+
 function weatherSearch() {
     var city = document.getElementById('cityName').value;
-    
     getWeatherForCity(city);
 
     //getLatAndLon(city);
 
     console.log(city);
 
+    //alert("cityArray:" + cityArray);
     cityArray.push(city);
 
     localStorage.setItem(key, JSON.stringify(cityArray));
 
-    cityArray = JSON.parse(localStorage.getItem(key));
+    //alert("city" + city);
+    //localStorage.setItem(city, city);
 
-    displayHistory()
+    //cityArray = JSON.parse(localStorage.getItem(key));
+
+    displayHistory();
 }
 
 function displayHistory() {
-    cityHistoryDiv.textContent = ''
+    cityHistoryDiv.textContent = '';
 
-    cityArray.forEach(function(city) {
+    /*
+    var keys = Object.keys(localStorage);
+    alert("length" + keys.length);
+
+    for (let i = 0; i < keys.length; i++) {
+        var key = keys[i];
+        var city = localStorage.getItem(key);
         var button = document.createElement("button");
+        button.style.backgroundColor = "gray";
+        button.style.margin = "5px";
+        document.body.appendChild(button);
         button.innerText = city;
         button.addEventListener("click", () => {getWeatherForCity(city)});
         cityHistoryDiv.appendChild(button);
-    })
+    }
+    */
+
+    
+    /*
+    keys.forEach(key=>(function(key) {
+
+        alert("for");
+
+        var city = localStorage.getItem(key);
+        var button = document.createElement("button");
+        button.style.backgroundColor = "gray";
+        button.style.margin = "5px";
+        document.body.appendChild(button);
+        button.innerText = city;
+        button.addEventListener("click", () => {getWeatherForCity(city)});
+        cityHistoryDiv.appendChild(button);
+    }))
+    */
+
+
+
+
+    
+    if (cityArray != null) {
+        cityArray.forEach(function(city) {
+            var button = document.createElement("button");
+            button.style.backgroundColor = "gray";
+            button.style.margin = "5px";
+            document.body.appendChild(button);
+            button.innerText = city;
+            button.addEventListener("click", () => {getWeatherForCity(city)});
+            cityHistoryDiv.appendChild(button);
+        })
+    }
+    
 }
 
 btn.addEventListener("click", weatherSearch);
 
-displayHistory()
+displayHistory();
 
 
 /*function getLatAndLon(city) {

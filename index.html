@@ -10,18 +10,22 @@
 
   </head>
   <body>
-    <h1>Weather Forecast Across America</h1>
+
+    <nav class="navbar navbar-white bg-dark"style="text-align: center; color: white; display:block">
+        <span class="navbar-brand mb-0 
+        h1">Weather Forecast Across America</span>
+      </nav>
+
     <main>
         <aside>
-            <div class="mb-3">
-                <label>City <Input id="cityName"></Input></label>
-                <button id="submitBtn">Submit</button>
+            <div class="mb-3" style="width: 50%;">
+                <label style="margin: 5px">City: <Input id="cityName"></Input></label>
+                <button id="submitBtn"type="button" class="btn btn-primary btn-sm" style="display:flex; margin: 5px;">Search</button> 
                 <div id="cityHistory"></div>
             </div>
         </aside>
 
-        <div id="weatherDiv">
-        </div>
+        <div id="weatherDiv" style="background-color: bisque; width: 50%;"></div>
 
     </main>
     <script src="./script.js"></script>
