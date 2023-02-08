@@ -5,6 +5,7 @@ This code was developed for a traveler wanting their own source for determining 
 
 ## Installation
 Bootstrap
+
 Working with openweathermap.org API
 
 ## Usage
